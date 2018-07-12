@@ -1,10 +1,12 @@
-package homework4;
+package fsadf;
 
 import java.util.Scanner;
 public class SecretPhrase {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//game state
+		boolean innerGame = true;
 		
 		//messages
 		StringBuilder secrectPharse = new StringBuilder("aperture science");
@@ -24,27 +26,37 @@ public class SecretPhrase {
 		System.out.println("THe goal of this game is to figure out the coded phase.");
 		System.out.println("THe Phase is " + codedPhase);
 		
+		do {
 		//input 
 		Scanner input = new Scanner(System.in);
 	    System.out.print("Please enter a letter, that you think is missing.");
 	    char userInput = input.next().charAt(0);
 	    
 	    char testChar = secrectPharse.charAt(4);
+	    switch(userInput) {
+	    	case 't':
+	    		System.out.println("That was a correct guess");
+		    	codedPhase.setCharAt(4,'t');
+	    		break;
+	    	case 'i':
+	    		System.out.println("That was a correct guess");
+		    	codedPhase.setCharAt(11,'i');
+	    		break;
+	    	default:
+	    		System.out.println("Sorry that was a wrong guess");
+	    if((codedPhase.equals(secrectPharse))) 
+	    	{
+	    	innerGame = false;
+	    	}
 	    
-	    //test user input
-	    if(userInput == testChar)
-	    {
-	    	System.out.println("That was a correct guess");
-	    	codedPhase.setCharAt(4,'t');
-	    }else 
-	    {
-	    	System.out.println("Sorry that was a wrong guess");
 	    }
-		
+	    System.out.println(codedPhase.length() + "   " + secrectPharse.length());
 	    //print out phase
-	    System.out.println("THe Phase is " + codedPhase);
+	    System.out.println("\n\n\n" +"THe Phase is " + codedPhase);
 	    
 	    //winnging statement
+		}while(innerGame);
+		 //winnging statement
 	    System.out.println("__/\\\\\\________/\\\\\\_____________________________________________________________________________________        \r\n" + 
 	    		" _\\///\\\\\\____/\\\\\\/______________________________________________________________________________________       \r\n" + 
 	    		"  ___\\///\\\\\\/\\\\\\/________________________________________________________________________________________      \r\n" + 
